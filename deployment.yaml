@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-chatbot
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-chatbot
+  template:
+    metadata:
+      labels:
+        app: my-chatbot
+    spec:
+      containers:
+      - name: my-chatbot
+        image: your-docker-registry/your-image:latest
+        ports:
+        - containerPort: 5000
